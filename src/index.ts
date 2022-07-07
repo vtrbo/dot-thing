@@ -6,12 +6,12 @@ import { defaultLanguages, defaultOptions } from './constant'
 
 export function activate(context: vscode.ExtensionContext): void {
   const dotThing: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('dotThing')
-  const options: IOption[] = dotThing.get('options') || defaultOptions
+  const options: IOption[] = [...defaultOptions, ...(dotThing.get('options') as IOption[] || [])]
 
   if (!options)
     return
 
-  const selector: vscode.DocumentSelector = dotThing.get('languages') || defaultLanguages
+  const selector: vscode.DocumentSelector = [...defaultLanguages as string[], ...(dotThing.get('languages') as string[] || [])]
   const provider: vscode.CompletionItemProvider = new CompletionItemProvider(options)
   const trigger = '.'
 
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext): void {
       } = {
         $simple: matchRealType(content).substring(0, 3),
         $stamp: matchRealType(content),
-        $label: `'${content}'`,
+        $label: `'${content.replace(/^\'(.*?)\'$/g, '$1')}'`,
         $value: content,
       }
       const formatReg = new RegExp(Object.keys(format).map((m: string) => `\\${m}`).join('|'), 'g')
