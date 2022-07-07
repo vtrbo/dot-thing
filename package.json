@@ -2,7 +2,7 @@
   "publisher": "vtrbo",
   "name": "dot-thing",
   "displayName": "Dot Thing",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@7.0.1",
   "description": "This is a Vscode plugin passing symbol . to type content quickly.",
   "author": "Victor Bo<vtrbo@qq.com>",
@@ -38,7 +38,7 @@
       "title": "DotThing",
       "properties": {
         "dotThing.languages": {
-          "type": "string | array",
+          "type": "array",
           "description": "DotThing 支持的语言",
           "default": [
             "html",
