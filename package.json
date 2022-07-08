@@ -4,7 +4,7 @@
   "displayName": "Dot Thing",
   "version": "0.0.4",
   "packageManager": "pnpm@7.0.1",
-  "description": "This is a Vscode plugin passing symbol . to type content quickly.",
+  "description": "This is a Vscode plugin passing symbol. to type content quickly.",
   "author": "Victor Bo<vtrbo@qq.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/vtrbo",
