@@ -25,10 +25,10 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
   # typecheck:
   #   runs-on: ubuntu-latest
@@ -45,10 +45,10 @@ jobs:
   #         cache: pnpm
 
   #     - name: Install
-  #       run: npm ci
+  #       run: pnpm install --frozen-lockfile
 
   #     - name: Typecheck
-  #       run: npm run typecheck
+  #       run: pnpm run typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -72,10 +72,10 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: npn run build
+        run: pnpm run build
 
       - name: Test
-        run: npn run test
+        run: pnpm run test
