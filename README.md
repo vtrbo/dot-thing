@@ -14,34 +14,44 @@
 <p align="center">This is a Vscode plugin passing symbol. to type content quickly.</p>
 </p>
 
-## 自定义配置 <font color=#4d9375>Custom Settings</font>
-你可以添加自定义配置。
-You can set custom options.
+## 效果图 Effect Picture
+- 你可以通过键入 XXX.log 实现 console.log('XXX', XXX) 的快速日志输出
 
-### 配置项 <font color=#4d9375>dotThing.options</font>
-类型是 IOption 数组。
-this is an IOption array.
+![console.log](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-log.gif?raw=true#pic_center)
 
-#### <font color=#4d9375>IOption</font>属性 <font color=#4d9375>IOption</font> attribute
-| 键 key | 名 name | 类型 type |
-| --- | --- | --- |
-| keyword | 关键字 keyword | 字符串 string |
-| <font color=#4d9375>formatter</font> | 格式化样式 formatter | 字符串 string |
-| description | 描述信息 description | 字符串 string |
+- 你可以通过键入 XXX.info 实现 console.info('XXX', XXX) 的快速日志输出
 
-<p><font color=#4d9375>formatter</font> 属性支持插值表达式。</p>
-<p><font color=#4d9375>formatter</font> support keyword placeholder.</p>
+![console.info](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-info.gif?raw=true#pic_center)
 
-| 名称 name | 描述 description |
-| --- | --- |
-| $simple | 类型简写 基于 $stamp type simple |
-| $stamp | 内容标识 content stamp |
-| $label | 标签名 label name |
-| $value | 输入值 value text |
+- 你可以通过键入 XXX.warn 实现 console.warn('XXX', XXX) 的快速日志输出
 
-#### 默认配置 <font color=#4d9375>Default Options</font>
+![console.warn](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-warn.gif?raw=true#pic_center)
+
+- 你可以通过键入 XXX.error 实现 console.error('XXX', XXX) 的快速日志输出
+
+![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-error.gif?raw=true#pic_center)
+
+- 你可以通过键入 XXX.var 实现 var typeof XXX = XXX 的快速变量声明
+
+![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-var.gif?raw=true#pic_center)
+
+- 你可以通过键入 XXX.let 实现 let typeof XXX = XXX 的快速变量声明
+
+![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-let.gif?raw=true#pic_center)
+
+- 你可以通过键入 XXX.const 实现 const typeof XXX = XXX 的快速常量声明
+
+![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-const.gif?raw=true#pic_center)
+
+## 自定义配置 Custom Settings
+<p>你可以添加自定义配置。</p>
+
+### 配置项 dotThing.options
+<p>类型是 IOption 数组。</p>
+
+#### 默认配置 Default Options
+##### settings.json
 ```json
-// setting.json
 {
   "dotThing.options": [
     {
@@ -83,13 +93,31 @@ this is an IOption array.
 }
 ```
 
-### 配置项 <font color=#4d9375>dotThing.languages</font>
-类型是字符串数组
-This is a string array.
+<h4>IOption属性</h4>
 
-#### 默认配置 <font color=#4d9375>Default Languages</font>
+| 键 | 名 | 类型 |
+| --- | --- | --- |
+| keyword | 关键字 | string |
+| formatter | 格式化样式 | string |
+| description | 描述信息 | string |
+
+<p>formatter 属性支持插值表达式。</p>
+
+<h4>formatter 插值</h4>
+
+| 名称 | 描述 |
+| --- | --- |
+| $simple | 类型简写 基于 $stamp 取的值 |
+| $stamp | 内容标识 |
+| $label | 标签名 |
+| $value | 输入值 |
+
+### 配置项 dotThing.languages
+<p>类型是字符串数组</p>
+
+#### 默认配置 Default Languages
+##### settings.json
 ```json
-// setting.json
 {
   "dotThing.languages": [
     "html",
