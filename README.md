@@ -17,31 +17,45 @@
 ## 效果图 Effect Picture
 - 你可以通过键入 XXX.log 实现 console.log('XXX', XXX) 的快速日志输出
 
-![console.log](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-log.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-log.gif?raw=true" alt="console.log" />
+</p>
 
 - 你可以通过键入 XXX.info 实现 console.info('XXX', XXX) 的快速日志输出
 
-![console.info](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-info.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-info.gif?raw=true" alt="console.info" />
+</p>
 
 - 你可以通过键入 XXX.warn 实现 console.warn('XXX', XXX) 的快速日志输出
 
-![console.warn](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-warn.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-warn.gif?raw=true" alt="console.warn" />
+</p>
 
 - 你可以通过键入 XXX.error 实现 console.error('XXX', XXX) 的快速日志输出
 
-![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-error.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-error.gif?raw=true" alt="console.error" />
+</p>
 
 - 你可以通过键入 XXX.var 实现 var typeof XXX = XXX 的快速变量声明
 
-![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-var.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-var.gif?raw=true" alt="var" />
+</p>
 
 - 你可以通过键入 XXX.let 实现 let typeof XXX = XXX 的快速变量声明
 
-![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-let.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-let.gif?raw=true" alt="let" />
+</p>
 
 - 你可以通过键入 XXX.const 实现 const typeof XXX = XXX 的快速常量声明
 
-![console.error](https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-const.gif?raw=true#pic_center)
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-const.gif?raw=true" alt="const" />
+</p>
 
 ## 自定义配置 Custom Settings
 <p>你可以添加自定义配置。</p>
