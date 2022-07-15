@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import type { IOption } from './types'
-import { matchRealType } from './utils'
+import { compute$Label, matchRealType } from './utils'
 import { CompletionItemProvider } from './provider'
 import { defaultLanguages, defaultOptions } from './constant'
 
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext): void {
       } = {
         $simple: matchRealType(content).substring(0, 3),
         $stamp: matchRealType(content),
-        $label: `'${content.replace(/^\'(.*?)\'$/g, '$1')}'`,
+        $label: compute$Label(content),
         $value: content,
       }
       const formatReg = new RegExp(Object.keys(format).map((m: string) => `\\${m}`).join('|'), 'g')

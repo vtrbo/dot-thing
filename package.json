@@ -106,7 +106,7 @@
   },
   "devDependencies": {
     "@babel/types": "^7.18.8",
-    "@types/node": "^18.0.3",
+    "@types/node": "^18.0.4",
     "@types/vscode": "^1.69.0",
     "@vtrbo/eslint-config": "^0.0.3",
     "bumpp": "^8.2.1",

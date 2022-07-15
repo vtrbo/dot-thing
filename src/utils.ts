@@ -24,3 +24,12 @@ export function matchRealType(content: string): string {
   }
   return realType
 }
+
+/**
+ * @description 计算 $label 的值
+ * @param content 内容
+ * @returns 具体的值
+ */
+export function compute$Label(content: string): string {
+  return JSON.stringify(content)
+}
