@@ -126,6 +126,31 @@
 | $label | 标签名 |
 | $value | 输入值 |
 
+<h3>顺便提一下，除了效果图，你还可以这么玩...</h3>
+
+##### settings.json (这么玩，才是这个插件的灵魂)
+```json
+{
+  "dotThing.options": [
+    {
+      "keyword": "vdlet",
+      "formatter": "let $simple = $ref<$stamp>($value)",
+      "description": "vue setup $ref let 变量声明"
+    },
+    {
+      "keyword": "vrlet",
+      "formatter": "let $simple = ref<$stamp>($value)",
+      "description": "vue setup ref let 变量声明"
+    }
+  ]
+}
+```
+##### 效果 (更多快捷键入还等待着你们自己去挖掘)
+
+<p align=center>
+<img src="https://github.com/vtrbo/dot-thing/blob/main/res/effect-picture/dot-custom.gif?raw=true" alt="dot.custom" />
+</p>
+
 ### 配置项 dotThing.languages
 <p>类型是字符串数组</p>
 
