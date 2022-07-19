@@ -11,7 +11,7 @@
 
 <p>
 <p align="center">这是一款通过符号'.'更快键入代码的 vscode 插件。</p>
-<p align="center">This is a Vscode plugin passing symbol. to type content quickly.</p>
+<p align="center">This is a Vscode plugin passing symbol '.' to type content quickly.</p>
 </p>
 
 ## 效果图 Effect Picture
