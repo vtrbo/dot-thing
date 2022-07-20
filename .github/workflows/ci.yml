@@ -24,11 +24,14 @@ jobs:
           node-version: 16.x
           cache: pnpm
 
+      - name: Setup
+        run: npm i -g @vtrbo/ni
+
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: nci
 
       - name: Lint
-        run: pnpm run lint
+        run: nr lint
 
   # typecheck:
   #   runs-on: ubuntu-latest
@@ -44,11 +47,14 @@ jobs:
   #         node-version: 16.x
   #         cache: pnpm
 
+  #     - name: Setup
+  #       run: npm i -g @vtrbo/ni
+
   #     - name: Install
-  #       run: pnpm install --frozen-lockfile
+  #       run: nci
 
   #     - name: Typecheck
-  #       run: pnpm run typecheck
+  #       run: nr typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -71,11 +77,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
 
+      - name: Setup
+        run: npm i -g @vtrbo/ni
+
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: nci
 
       - name: Build
-        run: pnpm run build
+        run: nr build
 
       - name: Test
-        run: pnpm run test
+        run: nr test
