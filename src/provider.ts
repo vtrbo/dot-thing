@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
 import type { IOption } from './types'
+import { compatible } from './utils'
 
 export class CompletionProvider implements vscode.CompletionItemProvider {
   /**
@@ -26,10 +27,14 @@ export class CompletionProvider implements vscode.CompletionItemProvider {
   public provideCompletionItems(_textDocument: vscode.TextDocument, position: vscode.Position): vscode.CompletionItem[] {
     this.position = position
     const completions = this.options.map((m: IOption): vscode.CompletionItem => {
+      // === 兼容 v0.0.8 之前 ===
+      m = compatible(m)
+      // === 兼容 v0.0.8 之前 ===
+
       const snippet: vscode.CompletionItem = {
-        label: m.keyword || m.target,
+        label: m.target,
         kind: vscode.CompletionItemKind.Operator,
-        documentation: m.description || m.depict,
+        documentation: m.depict,
       }
       return snippet
     }) || []
@@ -42,7 +47,13 @@ export class CompletionProvider implements vscode.CompletionItemProvider {
   public resolveCompletionItem(completionItem: vscode.CompletionItem): vscode.CompletionItem {
     const label = completionItem.label
     if (this.position && this.options && typeof label === 'string') {
-      const option = this.options.find(f => (f.keyword || f.target) === label)
+      let option = this.options.find(f => f.target === label)
+
+      // === 兼容 v0.0.8 之前 ===
+      if (option)
+        option = compatible(option)
+      // === 兼容 v0.0.8 之前 ===
+
       completionItem.command = {
         title: 'refactor',
         command: 'dot-thing-replace',

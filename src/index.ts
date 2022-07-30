@@ -3,7 +3,7 @@ import type { IOption } from './types'
 import { CompletionProvider } from './provider'
 import defaultLanguage from './defaultLanguage'
 import defaultComplete from './defaultComplete'
-import { compute$Label, matchRealType } from './utils'
+import { compatible, compute$Label, matchRealType } from './utils'
 
 /**
  * 设置补全指令
@@ -20,6 +20,10 @@ function setDocumentCommand() {
     const matchReg = new RegExp(`^(.*?).(${option.target})$`)
     const [lineContent, content, target] = lineText.trim().match(matchReg) || []
     if (target) {
+      // === 兼容 v0.0.8 之前 ===
+      option = compatible(option)
+      // === 兼容 v0.0.8 之前 ===
+
       const positionIndex = lineText.indexOf(content)
 
       let spaceFill = ''

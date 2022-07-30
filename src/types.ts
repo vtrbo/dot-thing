@@ -15,9 +15,9 @@ export interface IOption {
   depict: string
 
   /**
-   * v0.0.8 之前
+   * 兼容 v0.0.8 之前
    */
   keyword?: string
-  formatter?: string
+  formatter?: string | string[]
   description?: string
 }

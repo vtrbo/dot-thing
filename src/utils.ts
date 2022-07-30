@@ -1,3 +1,4 @@
+import type { IOption } from './types'
 /**
  * @description 根据特征判断是否是某个具体的类型
  * @param content 内容
@@ -32,4 +33,19 @@ export function matchRealType(content: string): string {
  */
 export function compute$Label(content: string): string {
   return JSON.stringify(content)
+}
+
+/**
+ * 兼容 v0.0.8 之前版本配置
+ *
+ * 预计 v1.0.0 之后不再支持
+ */
+export function compatible(option: IOption): IOption {
+  if (option.keyword && !option.target)
+    option.target = option.keyword
+  if (option.formatter && !option.format)
+    option.format = option.formatter
+  if (option.description && option.depict)
+    option.depict = option.description
+  return option
 }
