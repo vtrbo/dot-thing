@@ -133,12 +133,12 @@
 {
   "dotThing.options": [
     {
-      "target": "vdlet",
+      "target": "vtLet",
       "format": "let $simple = $ref<$stamp>($value)",
       "depict": "vue setup $ref let 变量声明"
     },
     {
-      "target": "vrlet",
+      "target": "vrLet",
       "format": "let $simple = ref<$stamp>($value)",
       "depict": "vue setup ref let 变量声明"
     }
