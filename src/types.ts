@@ -7,7 +7,7 @@ export interface IOption {
   /**
    * 补全格式
    */
-  format: string
+  format: string | string[]
 
   /**
    * 描述

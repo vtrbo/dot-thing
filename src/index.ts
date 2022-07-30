@@ -20,8 +20,17 @@ function setDocumentCommand() {
     const matchReg = new RegExp(`^(.*?).(${option.target})$`)
     const [lineContent, content, target] = lineText.trim().match(matchReg) || []
     if (target) {
-      let insertContent = option.format
       const positionIndex = lineText.indexOf(content)
+
+      let spaceFill = ''
+      if (typeof option.format !== 'string') {
+        spaceFill = '\n'
+        for (let i = 0; i < positionIndex; i++)
+          spaceFill += ' '
+      }
+
+      let insertContent = typeof option.format === 'string' ? option.format : option.format.join(spaceFill)
+
       edit.delete(
         new vscode.Range(
           position.with(undefined, positionIndex),
