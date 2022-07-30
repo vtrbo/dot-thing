@@ -69,39 +69,39 @@
 {
   "dotThing.options": [
     {
-      "keyword": "log",
-      "formatter": "console.log($label, $value)",
-      "description": "打印基本日志快捷键入"
+      "target": "log",
+      "format": "console.log($label, $value)",
+      "depict": "打印基本日志快捷键入"
     },
     {
-      "keyword": "info",
-      "formatter": "console.info($label, $value)",
-      "description": "打印信息日志快捷键入"
+      "target": "info",
+      "format": "console.info($label, $value)",
+      "depict": "打印信息日志快捷键入"
     },
     {
-      "keyword": "warn",
-      "formatter": "console.warn($label, $value)",
-      "description": "打印警告日志快捷键入"
+      "target": "warn",
+      "format": "console.warn($label, $value)",
+      "depict": "打印警告日志快捷键入"
     },
     {
-      "keyword": "error",
-      "formatter": "console.error($label, $value)",
-      "description": "打印错误日志快捷键入"
+      "target": "error",
+      "format": "console.error($label, $value)",
+      "depict": "打印错误日志快捷键入"
     },
     {
-      "keyword": "var",
-      "formatter": "var $stamp = $value",
-      "description": "声明全局变量快捷键入"
+      "target": "var",
+      "format": "var $stamp = $value",
+      "depict": "声明全局变量快捷键入"
     },
     {
-      "keyword": "let",
-      "formatter": "let $stamp = $value",
-      "description": "声明局部变量快捷键入"
+      "target": "let",
+      "format": "let $stamp = $value",
+      "depict": "声明局部变量快捷键入"
     },
     {
-      "keyword": "const",
-      "formatter": "const $stamp = $value",
-      "description": "声明局部常量快捷键入"
+      "target": "const",
+      "format": "const $stamp = $value",
+      "depict": "声明局部常量快捷键入"
     }
   ]
 }
@@ -111,13 +111,13 @@
 
 | 键 | 名 | 类型 |
 | --- | --- | --- |
-| keyword | 关键字 | string |
-| formatter | 格式化样式 | string |
-| description | 描述信息 | string |
+| target | 关键字 | string |
+| format | 格式化样式 | string |
+| depict | 描述信息 | string |
 
-<p>formatter 属性支持插值表达式。</p>
+<p>format 属性支持插值表达式。</p>
 
-<h4>formatter 插值</h4>
+<h4>format 插值</h4>
 
 | 名称 | 描述 |
 | --- | --- |
@@ -133,14 +133,14 @@
 {
   "dotThing.options": [
     {
-      "keyword": "vdlet",
-      "formatter": "let $simple = $ref<$stamp>($value)",
-      "description": "vue setup $ref let 变量声明"
+      "target": "vdlet",
+      "format": "let $simple = $ref<$stamp>($value)",
+      "depict": "vue setup $ref let 变量声明"
     },
     {
-      "keyword": "vrlet",
-      "formatter": "let $simple = ref<$stamp>($value)",
-      "description": "vue setup ref let 变量声明"
+      "target": "vrlet",
+      "format": "let $simple = ref<$stamp>($value)",
+      "depict": "vue setup ref let 变量声明"
     }
   ]
 }

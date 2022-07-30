@@ -1,20 +1,14 @@
 import * as vscode from 'vscode'
 import type { IOption } from './types'
+import { CompletionProvider } from './provider'
+import defaultLanguage from './defaultLanguage'
+import defaultComplete from './defaultComplete'
 import { compute$Label, matchRealType } from './utils'
-import { CompletionItemProvider } from './provider'
-import { defaultLanguages, defaultOptions } from './constant'
 
-export function activate(context: vscode.ExtensionContext): void {
-  const dotThing: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('dotThing')
-  const options: IOption[] = [...defaultOptions, ...(dotThing.get('options') as IOption[] || [])]
-
-  if (!options)
-    return
-
-  const selector: vscode.DocumentSelector = [...defaultLanguages as string[], ...(dotThing.get('languages') as string[] || [])]
-  const provider: vscode.CompletionItemProvider = new CompletionItemProvider(options)
-  const trigger = '.'
-
+/**
+ * 设置补全指令
+ */
+function setDocumentCommand() {
   const command = 'dot-thing-replace'
   const callback = (
     textEditor: vscode.TextEditor,
@@ -23,10 +17,10 @@ export function activate(context: vscode.ExtensionContext): void {
     option: IOption,
   ): void => {
     const lineText = textEditor.document.lineAt(position.line).text
-    const matchReg = new RegExp(`^(.*?).(${option.keyword})$`)
-    const [lineContent, content, keyword] = lineText.trim().match(matchReg) || []
-    if (keyword) {
-      let insertContent = option.formatter
+    const matchReg = new RegExp(`^(.*?).(${option.target})$`)
+    const [lineContent, content, target] = lineText.trim().match(matchReg) || []
+    if (target) {
+      let insertContent = option.format
       const positionIndex = lineText.indexOf(content)
       edit.delete(
         new vscode.Range(
@@ -50,13 +44,46 @@ export function activate(context: vscode.ExtensionContext): void {
       edit.insert(position.with(undefined, positionIndex), insertContent)
     }
   }
+  return vscode.commands.registerTextEditorCommand(command, callback)
+}
 
-  context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand(command, callback),
-  )
-  context.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(selector, provider, trigger),
-  )
+/**
+ * 设置代码补全
+ */
+function setDefaultProvider() {
+  const dotThing: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('dotThing')
+  const language: vscode.DocumentSelector = (dotThing.get('language') || []) as string[]
+  const options: IOption[] = (dotThing.get('options') || []) as IOption[]
+
+  const selector: vscode.DocumentSelector = [...defaultLanguage, ...language]
+  const provider: vscode.CompletionItemProvider = new CompletionProvider([...defaultComplete, ...options])
+  return vscode.languages.registerCompletionItemProvider(selector, provider, '.')
+}
+
+// /**
+//  * 更新代码补全
+//  */
+// function setSettingProvider(context: vscode.ExtensionContext) {
+//   vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
+//     const configList = ['dotThing.options', 'dotThing.language']
+//     const isChange = configList.some((s: string) => event.affectsConfiguration(s))
+
+//     if (isChange) {
+//       const dotThing: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration('dotThing')
+//       const language: vscode.DocumentSelector = (dotThing.get('language') || []) as string[]
+//       const options: IOption[] = (dotThing.get('options') || []) as IOption[]
+
+//       const selector: vscode.DocumentSelector = [...defaultLanguage, ...language]
+//       const provider: vscode.CompletionItemProvider = new CompletionProvider([...defaultComplete, ...options])
+
+//       context.subscriptions.splice(1, 1, vscode.languages.registerCompletionItemProvider(selector, provider, '.'))
+//     }
+//   })
+// }
+
+export function activate(context: vscode.ExtensionContext): void {
+  context.subscriptions.push(setDocumentCommand())
+  context.subscriptions.push(setDefaultProvider())
 }
 
 export function deactivate(): void {}

@@ -3,7 +3,7 @@
   "name": "dot-thing",
   "displayName": "Dot Thing",
   "version": "0.0.8",
-  "packageManager": "pnpm@7.5.2",
+  "packageManager": "pnpm@7.7.0",
   "description": "This is a Vscode plugin passing symbol. to type content quickly.",
   "author": "Victor Bo<vtrbo@qq.com>",
   "license": "MIT",
@@ -39,56 +39,11 @@
       "properties": {
         "dotThing.languages": {
           "type": "array",
-          "description": "DotThing 支持的语言",
-          "default": [
-            "html",
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "vue"
-          ]
+          "description": "DotThing 支持的语言"
         },
         "dotThing.options": {
           "type": "array",
-          "description": "DotThing 键入的格式",
-          "default": [
-            {
-              "keyword": "log",
-              "formatter": "console.log($label, $value)",
-              "description": "打印基本日志快捷键入"
-            },
-            {
-              "keyword": "info",
-              "formatter": "console.info($label, $value)",
-              "description": "打印信息日志快捷键入"
-            },
-            {
-              "keyword": "warn",
-              "formatter": "console.warn($label, $value)",
-              "description": "打印警告日志快捷键入"
-            },
-            {
-              "keyword": "error",
-              "formatter": "console.error($label, $value)",
-              "description": "打印错误日志快捷键入"
-            },
-            {
-              "keyword": "var",
-              "formatter": "var $stamp = $value",
-              "description": "声明全局变量快捷键入"
-            },
-            {
-              "keyword": "let",
-              "formatter": "let $stamp = $value",
-              "description": "声明局部变量快捷键入"
-            },
-            {
-              "keyword": "const",
-              "formatter": "const $stamp = $value",
-              "description": "声明局部常量快捷键入"
-            }
-          ]
+          "description": "DotThing 键入的格式"
         }
       }
     }
@@ -108,16 +63,16 @@
     "@babel/types": "^7.18.9",
     "@types/node": "^18.6.2",
     "@types/vscode": "^1.69.0",
-    "@vtrbo/eslint-config": "^0.0.5",
-    "@vtrbo/ni": "^0.0.2",
+    "@vtrbo/eslint-config": "^0.0.6",
+    "@vtrbo/ni": "^0.0.3",
     "bumpp": "^8.2.1",
     "eslint": "^8.20.0",
     "esno": "^0.16.3",
-    "pnpm": "^7.6.0",
+    "pnpm": "^7.7.0",
     "rimraf": "^3.0.2",
-    "tsup": "^6.2.0",
+    "tsup": "^6.2.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.3",
+    "vite": "^3.0.4",
     "vitest": "^0.19.1",
     "vsce": "^2.10.0"
   }
