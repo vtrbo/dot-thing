@@ -1,13 +1,23 @@
 export default [
   {
-    target: 'for',
+    target: 'fori',
     format: [
       'for (let i = 0; i < $value.length; i++) {',
       '  const f = $value[i]',
       '  ',
       '}',
     ],
-    depict: 'array for i 循环键入',
+    depict: 'for (let i = 0; i < array.length; i++)',
+  },
+  {
+    target: 'forr',
+    format: [
+      'for (let i = $value.length - 1; i >= 0; i--) {',
+      '  const f = $value[i]',
+      '  ',
+      '}',
+    ],
+    depict: 'for (let i = array.length - 1; i >= 0; i--)',
   },
   {
     target: 'forof',
@@ -16,16 +26,16 @@ export default [
       '  ',
       '}',
     ],
-    depict: 'array for of 循环键入',
+    depict: 'for (const value of array)',
   },
   {
-    target: 'foreach',
+    target: 'forEach',
     format: [
       '$value.forEach((f, fi) => {',
       '  ',
       '})',
     ],
-    depict: 'array forEach 循环键入',
+    depict: 'array.forEach(() => {})',
   },
   {
     target: 'map',
@@ -34,7 +44,7 @@ export default [
       '  ',
       '})',
     ],
-    depict: 'array map 循环键入',
+    depict: 'array.map(() => {})',
   },
 ]
 

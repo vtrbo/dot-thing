@@ -2,16 +2,16 @@ export default [
   {
     target: 'var',
     format: 'var $stamp = $value',
-    depict: '声明全局变量快捷键入',
+    depict: 'var type = value',
   },
   {
     target: 'let',
     format: 'let $stamp = $value',
-    depict: '声明局部变量快捷键入',
+    depict: 'let type = value',
   },
   {
     target: 'const',
     format: 'const $stamp = $value',
-    depict: '声明局部常量快捷键入',
+    depict: 'const type = value',
   },
 ]

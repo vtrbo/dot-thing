@@ -7,6 +7,6 @@ export default [
       '  ',
       '}',
     ],
-    depict: 'object for in 循环键入',
+    depict: 'or (const k in array)',
   },
 ]

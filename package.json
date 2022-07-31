@@ -5,7 +5,10 @@
   "version": "0.0.8",
   "packageManager": "pnpm@7.7.1",
   "description": "This is a Vscode plugin passing symbol. to type content quickly.",
-  "author": "Victor Bo<vtrbo@qq.com>",
+  "author": {
+    "name": "Victor Bo",
+    "email": "vtrbo@qq.com"
+  },
   "license": "MIT",
   "funding": "https://github.com/sponsors/vtrbo",
   "homepage": "https://github.com/vtrbo/dot-thing#readme",
