@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "@babel/types": "^7.18.9",
-    "@types/node": "^18.6.2",
+    "@types/node": "^18.6.3",
     "@types/vscode": "^1.69.0",
     "@vtrbo/eslint-config": "^0.0.6",
     "@vtrbo/ni": "^0.0.3",
@@ -76,7 +76,7 @@
     "tsup": "^6.2.1",
     "typescript": "^4.7.4",
     "vite": "^3.0.4",
-    "vitest": "^0.19.1",
+    "vitest": "^0.20.0",
     "vsce": "^2.10.0"
   }
 }
